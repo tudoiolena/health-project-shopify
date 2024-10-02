@@ -1,0 +1,160 @@
+{% schema %}
+{
+  "name": "Custom Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_alt_text",
+      "label": "Logo Alt Text",
+      "default": "{{ shop.name }} Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo Image"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Visit market"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu_item",
+      "name": "Menu Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item_text",
+          "label": "Menu Item Text"
+        },
+        {
+          "type": "url",
+          "id": "menu_item_link",
+          "label": "Menu Item Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Header",
+      "blocks": [
+        {
+          "type": "menu_item",
+          "settings": {
+            "menu_item_text": "Catalog",
+            "menu_item_link": "#catalog"
+          }
+        },
+        {
+          "type": "menu_item",
+          "settings": {
+            "menu_item_text": "Categories",
+            "menu_item_link": "#categories"
+          }
+        },
+        {
+          "type": "menu_item",
+          "settings": {
+            "menu_item_text": "About",
+            "menu_item_link": "#about"
+          }
+        },
+        {
+          "type": "menu_item",
+          "settings": {
+            "menu_item_text": "Reviews",
+            "menu_item_link": "#reviews"
+          }
+        },
+        {
+          "type": "menu_item",
+          "settings": {
+            "menu_item_text": "FAQ",
+            "menu_item_link": "#faq"
+          }
+        },
+        {
+          "type": "menu_item",
+          "settings": {
+            "menu_item_text": "Contact us",
+            "menu_item_link": "#contactus"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<header class="header-custom">
+  <div class="header-container">
+    <div class="header-logo">
+      <a href="{{ shop.url }}">
+        <img
+          src="
+            {%
+            if section.settings.logo_image == blank %}
+              {{ 'logo.png' | asset_url }}
+            {% else %}
+               {{ section.settings.logo_image | image_url: width: 100 }}
+            {% endif %}
+          "
+          alt="{{ section.settings.logo_alt_text }}"
+          width="100%"
+          height="100%"
+          class="logo"
+        >
+      </a>
+    </div>
+    <nav class="header-navigation">
+      <ul class="header-list">
+        {% for block in section.blocks %}
+          <li>
+            <a href="{{ block.settings.menu_item_link }}">{{ block.settings.menu_item_text }}</a>
+          </li>
+        {% else %}
+          <li><a href="#catalog">Catalog</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contactus">Contact us</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <a href="{{ section.settings.button_link }}" class="button-small">{{ section.settings.button_text }}</a>
+  </div>
+
+  <div class="a-header">
+    <input type="checkbox" name="main-nav" id="main-nav" class="burger-check">
+    <label for="main-nav" class="burger menu"><span></span></label>
+    <ul>
+      {% for block in section.blocks %}
+        <li>
+          <a href="{{ block.settings.menu_item_link }}">{{ block.settings.menu_item_text }}</a>
+        </li>
+      {% else %}
+        <li><a href="#catalog" class="nav-link">Catalog</a></li>
+        <li><a href="#categories" class="nav-link">Categories</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a href="#contactus" class="nav-link">Contact us</a></li>
+      {% endfor %}
+
+      <li>
+        <a href="{{ section.settings.button_link }}" class="button-large">{{ section.settings.button_text }}</a>
+      </li>
+    </ul>
+  </div>
+</header>

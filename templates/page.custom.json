@@ -1,0 +1,48 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "layout": "custom",
+  "sections": {
+    "hero_Bm6yyK": {
+      "type": "hero",
+      "blocks": {
+        "image_slide_8DP7pp": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/Creatine_caps_1.png",
+            "title": "ULTIMATE CREATINE 250g",
+            "text": "The health project",
+            "button_text": "Buy now $24.99",
+            "button_link": ""
+          }
+        },
+        "image_slide_DdTmNU": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/F1-Logo.png",
+            "title": "ULTIMATE CREATINE 2",
+            "text": "The health project 2",
+            "button_text": "Buy now",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_slide_8DP7pp",
+        "image_slide_DdTmNU"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "hero_Bm6yyK"
+  ]
+}
