@@ -1,0 +1,93 @@
+<div class="collection-slider-section">
+  <div class="collection-content-container">
+    <div class="collection-content-item">
+      <h3 class="collection-title">Protein</h3>
+      <p class="collection-amount">10</p>
+    </div>
+    <div class="collection-content-item">
+      <h3 class="collection-title">Protein</h3>
+      <p class="collection-amount">10</p>
+    </div>
+    <div class="collection-content-item">
+      <h3 class="collection-title">Protein</h3>
+      <p class="collection-amount">10</p>
+    </div>
+    <div class="collection-content-item">
+      <h3 class="collection-title">Protein</h3>
+      <p class="collection-amount">10</p>
+    </div>
+  </div>
+
+  <div class="collection-text-container">
+    <p class="collection-text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan
+      quam.
+    </p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collections Slider",
+  "presets": [
+    {
+      "name": "Collections Slider"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .collection-slider-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .collection-content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .collection-title,
+  .collection-amount {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 60px;
+    color: rgba(128, 128, 128, 1);
+    cursor: pointer;
+  }
+
+  .collection-title:hover,
+  .collection-title:active,
+  .collection-amount:hover,
+  .collection-amount:active {
+    color: rgba(35, 31, 32, 1);
+  }
+
+  .collection-content-item {
+    display: flex;
+    gap: 10px;
+  }
+
+  .collection-amount {
+    font-size: 30px;
+  }
+
+  .collection-text-container {
+    width: 510px;
+  }
+
+  .collection-text {
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    color: rgba(128, 128, 128, 1);
+  }
+</style>

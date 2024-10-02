@@ -13,36 +13,31 @@
     "hero_Bm6yyK": {
       "type": "hero",
       "blocks": {
-        "image_slide_8DP7pp": {
-          "type": "image_slide",
+        "slide_gMnH9c": {
+          "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Creatine_caps_1.png",
-            "title": "ULTIMATE CREATINE 250g",
-            "text": "The health project",
-            "button_text": "Buy now $24.99",
-            "button_link": ""
-          }
-        },
-        "image_slide_DdTmNU": {
-          "type": "image_slide",
-          "settings": {
-            "image": "shopify://shop_images/F1-Logo.png",
-            "title": "ULTIMATE CREATINE 2",
-            "text": "The health project 2",
-            "button_text": "Buy now",
-            "button_link": ""
+            "title": "aaa",
+            "text": "text",
+            "button_link": "",
+            "button_text": "text"
           }
         }
       },
       "block_order": [
-        "image_slide_8DP7pp",
-        "image_slide_DdTmNU"
+        "slide_gMnH9c"
       ],
+      "settings": {
+      }
+    },
+    "collections_slider_E7XWPp": {
+      "type": "collections-slider",
       "settings": {
       }
     }
   },
   "order": [
-    "hero_Bm6yyK"
+    "hero_Bm6yyK",
+    "collections_slider_E7XWPp"
   ]
 }

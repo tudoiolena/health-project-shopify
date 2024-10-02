@@ -17,8 +17,7 @@
             <p class="hero-subtitle">{{ block.settings.text }}</p>
             <a href="{{ block.settings.button_link }}" class="hero-button">{{ block.settings.button_text }}</a>
           </div>
-          <img
-            src="{{ block.settings.image | image_url: '1000x' }}"
+          <img src="{{ block.settings.image | image_url }}"
             alt="{{ block.settings.title }}"
             width="100%"
             height="100%"
