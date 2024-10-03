@@ -2,7 +2,9 @@
   <div class="collection-content-container">
     {% for collection in section.settings.selected_collections %}
       <div class="collection-content-item">
-        <h3 class="collection-title">{{ collection.title }}</h3>
+        <a class="no-decor" href="{{ collection.url }}">
+          <h3 class="collection-title">{{ collection.title }}</h3>
+        </a>
         <p class="collection-amount">{{ collection.products_count }}</p>
       </div>
     {% endfor %}
@@ -114,6 +116,8 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
   }
 
   .collection-title,
@@ -145,6 +149,7 @@
 
   .collection-text-container {
     width: 510px;
+    margin-bottom: 20px;
   }
 
   .collection-text {
