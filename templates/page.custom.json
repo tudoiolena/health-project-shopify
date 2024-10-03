@@ -16,16 +16,27 @@
         "slide_gMnH9c": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Creatine_caps_1.png",
-            "title": "aaa",
-            "text": "text",
+            "image": "shopify://shop_images/Creatine_caps_1_2d1fa1e7-9757-4ab3-a082-1a23e144fd38.png",
+            "title": "ULTIMATE CREATINE 250g",
+            "text": "THE HEALTH PROJECT",
             "button_link": "",
-            "button_text": "text"
+            "button_text": "Buy now $24.99"
+          }
+        },
+        "slide_QixPVJ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/creatine-flat-can.png",
+            "title": "",
+            "text": "",
+            "button_link": "",
+            "button_text": ""
           }
         }
       },
       "block_order": [
-        "slide_gMnH9c"
+        "slide_gMnH9c",
+        "slide_QixPVJ"
       ],
       "settings": {
       }
