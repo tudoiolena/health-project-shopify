@@ -3,91 +3,52 @@
 
 <div id="collections-slider" class="collection-slider-section">
   <div class="collection-content-container">
-    <div class="collection-content-item">
-      <h3 class="collection-title">Protein</h3>
-      <p class="collection-amount">10</p>
-    </div>
-    <div class="collection-content-item">
-      <h3 class="collection-title">Protein</h3>
-      <p class="collection-amount">10</p>
-    </div>
-    <div class="collection-content-item">
-      <h3 class="collection-title">Protein</h3>
-      <p class="collection-amount">10</p>
-    </div>
-    <div class="collection-content-item">
-      <h3 class="collection-title">Protein</h3>
-      <p class="collection-amount">10</p>
-    </div>
+    {% for collection in section.settings.selected_collections %}
+      <div class="collection-content-item">
+        <h3 class="collection-title">{{ collection.title }}</h3>
+        <p class="collection-amount">{{ collection.products_count }}</p>
+      </div>
+    {% endfor %}
   </div>
 
   <div class="collection-text-container">
-    <p class="collection-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan
-      quam.
-    </p>
+    <p class="collection-text">{{ section.settings.collection_description }}</p>
   </div>
 </div>
 
 <div id="collections-swiper" class="swiper-container">
   <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <div class="product-container">
-        <img src="{{ 'product-image.png' | asset_url }}" width="100%" height="100%">
-        <div class="product-text-container">
-          <h3 class="product-title">The Health Project Essential Stack</h3>
-          <p class="product-weight">200g</p>
-          <p class="product-price">$24.99</p>
+    {% for collection in section.settings.selected_collections %}
+      {% for product in collection.products %}
+        <div class="swiper-slide">
+          <a class="no-decor" href="{{ product.url }}">
+            <div class="product-container">
+              <img
+                src="{{ product.featured_image | image_url }}"
+                alt="{{ product.title }}"
+                width="100%"
+                height="100%"
+              >
+              <div class="product-text-container">
+                <h3 class="product-title">{{ product.title }}</h3>
+                <p class="product-weight">
+                  {{ product.variants.first.weight }}
+                  {{ product.variants.first.weight_unit }}
+                </p>
+                <p class="product-price">{{ product.price | money }}</p>
+              </div>
+            </div>
+          </a>
         </div>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="product-container">
-        <img src="{{ 'product-image.png' | asset_url }}" width="100%" height="100%">
-        <div class="product-text-container">
-          <h3 class="product-title">The Health Project Essential Stack</h3>
-          <p class="product-weight">200g</p>
-          <p class="product-price">$24.99</p>
-        </div>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="product-container">
-        <img src="{{ 'product-image.png' | asset_url }}" width="100%" height="100%">
-        <div class="product-text-container">
-          <h3 class="product-title">The Health Project Essential Stack</h3>
-          <p class="product-weight">200g</p>
-          <p class="product-price">$24.99</p>
-        </div>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="product-container">
-        <img src="{{ 'product-image.png' | asset_url }}" width="100%" height="100%">
-        <div class="product-text-container">
-          <h3 class="product-title">The Health Project Essential Stack</h3>
-          <p class="product-weight">200g</p>
-          <p class="product-price">$24.99</p>
-        </div>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="product-container">
-        <img src="{{ 'product-image.png' | asset_url }}" width="100%" height="100%" alt="Image of the product">
-        <div class="product-text-container">
-          <h3 class="product-title">The Health Project Essential Stack</h3>
-          <p class="product-weight">200g</p>
-          <p class="product-price">$24.99</p>
-        </div>
-      </div>
-    </div>
+      {% endfor %}
+    {% endfor %}
   </div>
+
   <div class="arrow-container">
     <div class="gap">
       <div class="arrow-left">
         <img src="{{ 'arrow-left-small.png' | asset_url }}" alt="Previous" width="100%" height="100%">
       </div>
-
       <div class="arrow-right">
         <img src="{{ 'arrow-right-small.png' | asset_url }}" alt="Next" width="100%" height="100%">
       </div>
@@ -114,9 +75,23 @@
 {% schema %}
 {
   "name": "Collections Slider",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "collection_description",
+      "label": "Collection Description",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "type": "collection_list",
+      "id": "selected_collections",
+      "label": "Select Collections"
+    }
+  ],
   "presets": [
     {
-      "name": "Collections Slider"
+      "name": "Collections Slider",
+      "category": "Custom Sections"
     }
   ]
 }
@@ -145,6 +120,7 @@
     line-height: 60px;
     color: rgba(128, 128, 128, 1);
     cursor: pointer;
+    text-decoration: none;
   }
 
   .collection-title:hover,
@@ -193,6 +169,7 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 27px;
+    color: rgba(35, 31, 32, 1);
   }
 
   .product-weight {
@@ -233,5 +210,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .no-decor {
+    text-decoration: none;
   }
 </style>
