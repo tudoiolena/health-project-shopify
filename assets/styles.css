@@ -10,6 +10,17 @@
   --font-size-large: 24px;
 }
 
+.header-custom {
+  margin: 10px 0;
+  max-width: 1990px;
+}
+
+@media screen and (max-width: 600px) {
+  .header-logo {
+    margin-left: 10px;
+  }
+}
+
 .header-container {
   display: flex;
   justify-content: space-around;
