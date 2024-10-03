@@ -33,6 +33,10 @@
     "collections_slider_E7XWPp": {
       "type": "collections-slider",
       "settings": {
+        "collection_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam.",
+        "selected_collections": [
+          "vitamins-under-50"
+        ]
       }
     }
   },

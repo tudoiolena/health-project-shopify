@@ -11,12 +11,12 @@
       rel="stylesheet"
     >
     <link href="{{ 'styles.css' | asset_url }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script defer="defer" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </head>
   <body>
-    <!-- Header Section -->
     {% section 'header-custom' %}
 
-    <!-- Content will come from a custom template -->
     {{ content_for_layout }}
   </body>
 </html>

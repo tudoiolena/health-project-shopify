@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
 <div id="collections-slider" class="collection-slider-section">
   <div class="collection-content-container">
     {% for collection in section.settings.selected_collections %}
@@ -57,18 +54,25 @@
 </div>
 
 <script>
-  const swiper = new Swiper('#collections-swiper', {
-    slidesPerView: 4,
-    spaceBetween: 15,
-    loop: true,
-    navigation: {
-      nextEl: '.arrow-right',
-      prevEl: '.arrow-left',
-    },
-    autoplay: {
-      delay: 3000,
-    },
-    pagination: false,
+  document.addEventListener('DOMContentLoaded', function () {
+    const swiper = new Swiper('#collections-swiper', {
+      slidesPerView: 4,
+      spaceBetween: 15,
+      loop: true,
+      navigation: {
+        nextEl: '.arrow-right',
+        prevEl: '.arrow-left',
+      },
+      autoplay: {
+        delay: 3000,
+      },
+      breakpoints: {
+        1024: { slidesPerView: 4 },
+        768: { slidesPerView: 2 },
+        428: { slidesPerView: 1 },
+      },
+      pagination: false,
+    });
   });
 </script>
 
@@ -80,7 +84,7 @@
       "type": "textarea",
       "id": "collection_description",
       "label": "Collection Description",
-      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nunc ultrices, feugiat augue vitae, accumsan quam."
     },
     {
       "type": "collection_list",
@@ -155,6 +159,7 @@
   .product-container {
     background: rgba(248, 248, 248, 1);
     border-radius: 12px;
+    padding-top: 20px;
   }
 
   .product-text-container {
