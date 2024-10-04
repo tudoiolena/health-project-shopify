@@ -7,7 +7,7 @@
   }
 
   .top-seller-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat, sans-serif;
     font-size: 40px;
     font-weight: 500;
     line-height: 60px;
@@ -16,13 +16,13 @@
   }
 
   .top-seller-text {
-    font-family: 'Karla', sans-serif;
+    font-family: Karla, sans-serif;
     font-size: 15px;
     font-weight: 400;
     line-height: 24px;
     text-align: center;
     color: rgba(128, 128, 128, 1);
-    width: 508px;
+    max-width: 508px;
     margin-bottom: 35px;
   }
 
@@ -62,7 +62,7 @@
   }
 
   .top-seller-product-text {
-    font-family: 'Karla', sans-serif;
+    font-family: Karla, sans-serif;
     font-size: 15px;
     font-weight: 400;
     line-height: 24px;
@@ -81,6 +81,64 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  #top-seller-swiper {
+    display: none;
+  }
+
+  @media screen and (min-width: 428px) {
+    .top-seller-product-title {
+      font-size: 18px;
+      line-height: 27px;
+    }
+
+    .top-seller-title-container {
+      padding-top: 20px;
+      margin: 0 0 15px 0;
+    }
+
+    .top-seller-content {
+      padding: 0 10px;
+    }
+
+    .top-seller-title {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 36px;
+      text-align: center;
+    }
+
+    .top-seller-text {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 24px;
+      max-width: 355px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .top-seller-card {
+      max-width: 355px;
+    }
+
+    #top-seller-swiper {
+      display: flex;
+    }
+
+    .card-container {
+      display: none;
+    }
+
+    .top-seller-title {
+      font-size: 32px;
+      line-height: 48px;
+      text-align: center;
+    }
+
+    .top-seller-text {
+      max-width: 508px;
+    }
   }
 </style>
 
@@ -133,7 +191,50 @@
       }
     %}
   </div>
+
+  <div id="top-seller-swiper" class="swiper-container align-center">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        {%
+          render 'top-seller-product-card.liquid' with {
+          productTitle: 'CREATINE MONOHYDRATE',
+          productLink: 'https://example.com',
+          productDescription: 'Creatine Monohydrate is widely used for enhancing muscle strength.',
+          productImage: 'creatine-flat-can.png',
+          arrowImage: 'arrow-right-corner.png'
+          }
+        %}
+      </div>
+    </div>
+
+    <div class="arrow-container">
+      <div class="gap">
+        <div class="arrow-left">
+          <img src="{{ 'arrow-left-small.png' | asset_url }}" alt="Previous" width="100%" height="100%">
+        </div>
+        <div class="arrow-right">
+          <img src="{{ 'arrow-right-small.png' | asset_url }}" alt="Next" width="100%" height="100%">
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const swiper = new Swiper('#top-seller-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 15,
+      loop: true,
+      navigation: {
+        nextEl: '.arrow-right',
+        prevEl: '.arrow-left',
+      },
+     autoplay: false
+      pagination: false,
+    });
+  });
+</script>
 
 {% schema %}
 {
