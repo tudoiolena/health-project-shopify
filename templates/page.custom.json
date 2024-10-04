@@ -20,7 +20,10 @@
             "title": "ULTIMATE CREATINE 250g",
             "text": "THE HEALTH PROJECT",
             "button_link": "",
-            "button_text": "Buy now $24.99"
+            "button_text": "Buy now $24.99",
+            "title_alignment": "left",
+            "button_alignment": "left",
+            "hide_button": false
           }
         },
         "slide_QixPVJ": {
@@ -30,7 +33,10 @@
             "title": "",
             "text": "",
             "button_link": "",
-            "button_text": ""
+            "button_text": "",
+            "title_alignment": "left",
+            "button_alignment": "left",
+            "hide_button": false
           }
         }
       },
@@ -54,10 +60,16 @@
           "new-collection"
         ]
       }
+    },
+    "top_sellers_HAnm8r": {
+      "type": "top-sellers",
+      "settings": {
+      }
     }
   },
   "order": [
     "hero_Bm6yyK",
-    "collections_slider_E7XWPp"
+    "collections_slider_E7XWPp",
+    "top_sellers_HAnm8r"
   ]
 }
